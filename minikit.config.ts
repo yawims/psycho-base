@@ -39,4 +39,7 @@ export const minikitConfig = {
     ogImageUrl: `${ROOT_URL}/og.png`,
     enableGPT5Mini: true,                               // Enable GPT-5 mini for all clients
   },
+  baseBuilder: {
+    ownerAddress: "0xDF791bF8449B39c17DF06a83104c1286d271A539"
+  },
 } as const;
