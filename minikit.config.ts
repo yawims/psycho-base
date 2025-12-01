@@ -34,7 +34,7 @@ export const minikitConfig = {
     tags: ["quiz", "personality", "fun", "base", "onchain"],
     heroImageUrl: `${ROOT_URL}/hero.png`,
     tagline: "How psycho are you on Base?",
-    ogTitle: "Psycho Base - Discover Yourself",
+    ogTitle: "Psycho Base — Personality",
     ogDescription:
       "Answer 10 questions and get your psycho level instantly. Share results on Warpcast!",
     ogImageUrl: `${ROOT_URL}/og.png`,
