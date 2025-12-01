@@ -38,5 +38,6 @@ export const minikitConfig = {
     ogDescription:
       "Answer 10 questions and get your psycho level instantly. Share results on Warpcast!",
     ogImageUrl: `${ROOT_URL}/og.png`,
+    enableGPT5Mini: true,                               // Enable GPT-5 mini for all clients
   },
 } as const;

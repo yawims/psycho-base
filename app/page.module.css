@@ -5,6 +5,7 @@
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
   color: white;
   position: relative;
+  overflow-y: auto;
 }
 
 .closeButton {
@@ -23,6 +24,7 @@
   justify-content: center;
   font-size: 1.2rem;
   transition: all 0.3s ease;
+  z-index: 10;
 }
 
 .closeButton:hover {
@@ -37,77 +39,242 @@
   justify-content: center;
   flex: 1;
   padding: 2rem;
+  gap: 2rem;
 }
 
-.waitlistForm {
-  text-align: center;
-  max-width: 600px;
+/* ============ QUIZ CONTAINER ============ */
+.quizContainer {
   width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1rem;
 }
 
 .title {
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
   letter-spacing: -0.02em;
-  margin-bottom: 2rem;
-  background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #6bcf7f 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  animation: fadeIn 0.8s ease;
 }
 
-.subtitle {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 3rem;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 300;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-}
-
-.emailInput {
-  width: 100%;
-  max-width: 400px;
-  padding: 1rem 1.5rem;
+.tagline {
   font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+/* ============ PROGRESS BAR ============ */
+.progressBar {
+  width: 100%;
+  height: 8px;
   background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 12px;
-  color: white;
+  border-radius: 10px;
+  overflow: hidden;
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.emailInput::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #ff6b6b 0%, #ffd93d 50%, #6bcf7f 100%);
+  transition: width 0.5s ease;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
 }
 
-.emailInput:focus {
-  outline: none;
-  border-color: rgba(255, 255, 255, 0.4);
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-}
-
-.error {
-  color: #ff6b6b;
+.progressText {
+  text-align: center;
   font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
   margin: 0;
 }
 
-.joinButton {
-  background: #f7d954;
+/* ============ QUESTION CARD ============ */
+.questionCard {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 2.5rem;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.6s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.question {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  color: white;
+  text-align: left;
+}
+
+.answersContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.answerButton {
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.answerButton::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1));
+  transition: width 0.5s ease;
+}
+
+.answerButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 107, 107, 0.5);
+  transform: translateX(8px);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+}
+
+.answerButton:active {
+  transform: scale(0.98);
+}
+
+/* ============ RESULTS CONTAINER ============ */
+.resultsContainer {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  animation: slideInUp 0.5s ease-out;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+}
+
+.resultEmoji {
+  font-size: 5rem;
+  line-height: 1;
+  animation: bounce 0.8s ease;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.resultType {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #6bcf7f 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.resultDescription {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.scoreBox {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.2) 0%, rgba(217, 157, 43, 0.2) 50%, rgba(107, 207, 127, 0.2) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.scoreLabel {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.scoreValue {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #6bcf7f 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.resultActions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.shareButton {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #6bcf7f 100%);
   color: #000;
   border: none;
-  padding: 1rem 3rem;
+  padding: 1.2rem 2rem;
   font-size: 1rem;
   font-weight: 700;
   border-radius: 12px;
@@ -115,12 +282,72 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-top: 1rem;
-  box-shadow: 0 4px 20px rgba(247, 217, 84, 0.3);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+  width: 100%;
 }
 
-.joinButton:hover {
-  background: #f5d73a;
+.shareButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(247, 217, 84, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+}
+
+.shareButton:active {
+  transform: scale(0.98);
+}
+
+.retryButton {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 1.2rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+}
+
+.retryButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.retryButton:active {
+  transform: scale(0.98);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 640px) {
+  .content {
+    padding: 1.5rem;
+  }
+
+  .questionCard {
+    padding: 1.5rem;
+  }
+
+  .question {
+    font-size: 1.2rem;
+  }
+
+  .answerButton {
+    padding: 1rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .resultEmoji {
+    font-size: 4rem;
+  }
+
+  .resultType {
+    font-size: 1.5rem;
+  }
+
+  .scoreValue {
+    font-size: 2.5rem;
+  }
 }
