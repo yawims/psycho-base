@@ -31,10 +31,10 @@ export const minikitConfig = {
     homeUrl: ROOT_URL,
     webhookUrl: `${ROOT_URL}/api/webhook`,              // do not change
     primaryCategory: "games" as const,                  // or "entertainment"
-    tags: ["quiz", "personality", "psychotest", "fun", "base", "onchain"],
+    tags: ["quiz", "personality", "fun", "base", "onchain"],
     heroImageUrl: `${ROOT_URL}/hero.png`,
     tagline: "How psycho are you on Base?",
-    ogTitle: "Psycho Base – The Wildest Personality Test on Base",
+    ogTitle: "Psycho Base - Discover Yourself",
     ogDescription:
       "Answer 10 questions and get your psycho level instantly. Share results on Warpcast!",
     ogImageUrl: `${ROOT_URL}/og.png`,
