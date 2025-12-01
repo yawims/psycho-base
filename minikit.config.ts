@@ -11,10 +11,9 @@ const ROOT_URL =
  */
 export const minikitConfig = {
   accountAssociation: {
-    header: "",
-    payload: "",
-    signature: "",
-    // Will be auto-filled when you submit to Base Discover (can stay empty for now)
+    header: "eyJmaWQiOjUxNzQwMCwidHlwZSI6ImF1dGgiLCJrZXkiOiIweDFEOWE1QWU2Yzg0QzIzNTMzZUI2YTAxOURDODA1N2NkZDcwYUI4MzEifQ",
+    payload: "eyJkb21haW4iOiJwc3ljaG8tYmFzZS52ZXJjZWwuYXBwIn0",
+    signature: "8SFA8oZCrZIWNiv9qhjba6Ox85a33F65w2+UyPTn/K0q8VaZ1jvcPgpPYXns6PFyC5sZuJUKPfSb+cs+6fWquRw="
   },
   miniapp: {
     version: "1",
