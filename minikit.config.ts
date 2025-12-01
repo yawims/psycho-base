@@ -15,6 +15,9 @@ export const minikitConfig = {
     payload: "eyJkb21haW4iOiJwc3ljaG8tYmFzZS52ZXJjZWwuYXBwIn0",
     signature: "8SFA8oZCrZIWNiv9qhjba6Ox85a33F65w2+UyPTn/K0q8VaZ1jvcPgpPYXns6PFyC5sZuJUKPfSb+cs+6fWquRw="
   },
+  baseBuilder: {
+    ownerAddress: "0xDF791bF8449B39c17DF06a83104c1286d271A539"
+  },
   miniapp: {
     version: "1",
     name: "Psycho Base",
