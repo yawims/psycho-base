@@ -1,36 +1,42 @@
+// minikit.config.ts
+
 const ROOT_URL =
   process.env.NEXT_PUBLIC_URL ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : 'http://localhost:3000');
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
 
 /**
- * MiniApp configuration object. Must follow the Farcaster MiniApp specification.
- *
- * @see {@link https://miniapps.farcaster.xyz/docs/guides/publishing}
+ * Psycho Base – Onchain Personality Quiz Mini App
  */
 export const minikitConfig = {
   accountAssociation: {
     header: "",
     payload: "",
-    signature: ""
+    signature: "",
+    // Will be auto-filled when you submit to Base Discover (can stay empty for now)
   },
   miniapp: {
     version: "1",
-    name: "Cubey", 
-    subtitle: "Your AI Ad Companion", 
-    description: "Ads",
-    screenshotUrls: [`${ROOT_URL}/screenshot-portrait.png`],
-    iconUrl: `${ROOT_URL}/blue-icon.png`,
-    splashImageUrl: `${ROOT_URL}/blue-hero.png`,
-    splashBackgroundColor: "#000000",
+    name: "Psycho Base",
+    subtitle: "Onchain Personality Test",
+    description: "10 wild questions. Discover how psycho you really are on Base.",
+    iconUrl: `${ROOT_URL}/icon.png`,                    // 512×512 required
+    screenshotUrls: [
+      `${ROOT_URL}/screenshot-1.png`,   // portrait screenshot (required)
+      `${ROOT_URL}/screenshot-2.png`,   // extra screenshot (highly recommended)
+    ],
+    splashImageUrl: `${ROOT_URL}/hero.png`,
+    splashBackgroundColor: "#0d001a",                   // dark purple-black vibe
     homeUrl: ROOT_URL,
-    webhookUrl: `${ROOT_URL}/api/webhook`,
-    primaryCategory: "social",
-    tags: ["marketing", "ads", "quickstart", "waitlist"],
-    heroImageUrl: `${ROOT_URL}/blue-hero.png`, 
-    tagline: "",
-    ogTitle: "",
-    ogDescription: "",
-    ogImageUrl: `${ROOT_URL}/blue-hero.png`,
+    webhookUrl: `${ROOT_URL}/api/webhook`,              // do not change
+    primaryCategory: "games" as const,                  // or "entertainment"
+    tags: ["quiz", "personality", "psychotest", "fun", "base", "onchain"],
+    heroImageUrl: `${ROOT_URL}/hero.png`,
+    tagline: "How psycho are you on Base?",
+    ogTitle: "Psycho Base – The Wildest Personality Test on Base",
+    ogDescription:
+      "Answer 10 questions and get your psycho level instantly. Share results on Warpcast!",
+    ogImageUrl: `${ROOT_URL}/og.png`,
   },
 } as const;
-
