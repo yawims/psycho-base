@@ -1,0 +1,33 @@
+{
+  "accountAssociation": {
+    "header": "eyJmaWQiOjUxNzQwMCwidHlwZSI6ImF1dGgiLCJrZXkiOiIweDFEOWE1QWU2Yzg0QzIzNTMzZUI2YTAxOURDODA1N2NkZDcwYUI4MzEifQ",
+    "payload": "eyJkb21haW4iOiJwc3ljaG8tYmFzZS52ZXJjZWwuYXBwIn0",
+    "signature": "8SFA8oZCrZIWNiv9qhjba6Ox85a33F65w2+UyPTn/K0q8VaZ1jvcPgpPYXns6PFyC5sZuJUKPfSb+cs+6fWquRw="
+  },
+  "baseBuilder": {
+    "ownerAddress": "0xDF791bF8449B39c17DF06a83104c1286d271A539"
+  },
+  "miniapp": {
+    "version": "1",
+    "name": "Psycho Base",
+    "subtitle": "Onchain Personality Test",
+    "description": "10 wild questions. Discover how psycho you really are on Base.",
+    "iconUrl": "https://psycho-base-o5usbu3np-yvdhas-projects.vercel.app/icon.png",
+    "screenshotUrls": [
+      "https://psycho-base-o5usbu3np-yvdhas-projects.vercel.app/screenshot-1.png",
+      "https://psycho-base-o5usbu3np-yvdhas-projects.vercel.app/screenshot-2.png"
+    ],
+    "splashImageUrl": "https://psycho-base-o5usbu3np-yvdhas-projects.vercel.app/hero.png",
+    "splashBackgroundColor": "#0d001a",
+    "homeUrl": "https://psycho-base-o5usbu3np-yvdhas-projects.vercel.app",
+    "webhookUrl": "https://api.neynar.com/f/app/d7e50ec2-96c1-4bad-b317-306d25034c5a/event",
+    "primaryCategory": "games",
+    "tags": ["quiz", "personality", "fun", "base", "onchain"],
+    "heroImageUrl": "https://psycho-base-o5usbu3np-yvdhas-projects.vercel.app/hero.png",
+    "tagline": "How psycho are you on Base?",
+    "ogTitle": "Psycho Base — Personality",
+    "ogDescription": "Answer 10 questions and get your psycho level instantly. Share results on Warpcast!",
+    "ogImageUrl": "https://psycho-base-o5usbu3np-yvdhas-projects.vercel.app/og.png",
+    "enableGPT5Mini": true
+  }
+}
