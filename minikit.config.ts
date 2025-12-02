@@ -31,7 +31,7 @@ export const minikitConfig = {
     splashImageUrl: `${ROOT_URL}/hero.png`,
     splashBackgroundColor: "#0d001a",                   // dark purple-black vibe
     homeUrl: ROOT_URL,
-    webhookUrl: `${ROOT_URL}/api/webhook`,              // do not change
+    webhookUrl: "https://api.neynar.com/f/app/d7e50ec2-96c1-4bad-b317-306d25034c5a/event",              // replaced per user request
     primaryCategory: "games" as const,                  // or "entertainment"
     tags: ["quiz", "personality", "fun", "base", "onchain"],
     heroImageUrl: `${ROOT_URL}/hero.png`,
